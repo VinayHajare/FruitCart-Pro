@@ -48,13 +48,13 @@ async function createAdminUser() {
     await connectToDatabase()
 
     // Check if admin already exists
-    const existingAdmin = await User.findOne({ email: "vinayhajare2004@gmail.com" })
+    const existingAdmin = await User.findOne({ email: "your.email@example.com" })
     if (existingAdmin) {
       console.log("Admin already exists")
 
       // Update password if needed
       const salt = await bcrypt.genSalt(10)
-      const hashedPassword = await bcrypt.hash("Vinay2324", salt)
+      const hashedPassword = await bcrypt.hash("Your Password", salt)
 
       existingAdmin.password = hashedPassword
       await existingAdmin.save()
